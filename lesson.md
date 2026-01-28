@@ -1,39 +1,117 @@
-# **Detailed Lesson Plan: 1.6 Introduction to NumPy**
+# Lesson 1.6 – NumPy for Beginners (Agenda)
 
-**Total Duration:** 180 Minutes (3 Hours)
+Total Duration: 3 hours  
+Environment: Google Colab or VS Code Jupyter
 
-## **Section 1: The Environment & The Engine (60 min)**
+This agenda follows the content and order in `notebooks/numpy.ipynb` so learners move through the notebook top-to-bottom.
 
-*Goal: Master Jupyter in VSCode and understand the "Why" of NumPy.*
+---
 
-| Time | Activity | Instructor Notes |
-| ----- | ----- | ----- |
-| 05m | **Objectives & Intro** | Highlight: NumPy is the foundation for Pandas and Scikit-Learn. |
-| 15m | **Workshop 1: Jupyter/VSCode** | Demo: Creating cells, Markdown vs Code, Keyboard shortcuts (`Shift+Enter`). |
-| 15m | **Workshop 2: Speed Test** | Demo: Compare Python List vs NumPy Array (1M elements). Use `%timeit`. |
-| 20m | **Theory: Memory & Types** | Explain **Contiguous Memory** vs Python lists. Discuss homogeneous types. |
-| 05m | **Q\&A** | Address "Why not just use Excel?" (Scale, Memory efficiency, Automation). |
+## 0–10 min — Welcome & Outcomes
 
-## **Section 2: Array Anatomy & Arithmetic (60 min)**
+- Introduce the session and goals:
+  - Understand what NumPy is and why it matters
+  - Create and inspect basic arrays
+  - See how NumPy compares to Python lists on performance
 
-*Goal: Create arrays, manage data types, and perform vectorized math.*
+---
 
-| Time | Activity | Instructor Notes |
-| ----- | ----- | ----- |
-| 10m | **Theory: The ndarray** | Explain dimensions (1D, 2D, 3D), `.shape`, `.dtype`, and `.ndim`. |
-| 20m | **Workshop 3: Creation & Casting** | **Demo:** `np.array()`, `np.zeros()`, `np.ones()`. **Exercise:** Using `.astype()` to cast floats to ints. |
-| 20m | **Workshop 4: Math & Broadcasting** | **Demo:** Element-wise math and Broadcasting scalars/arrays. **Exercise:** Vectorized arithmetic. |
-| 05m | **Socratic Review** | "What happens to the decimal when casting `float` to `int32`?" (Truncation). |
-| 05m | **Break** | Stretch and reset. |
+## 10–30 min — Part 1: Performance Benchmark
 
-## **Section 3: Data Selection, Logic & Algebra (60 min)**
+Notebook: **“Part 1: Performance Benchmark”** section and code cell.[file:1]
 
-*Goal: Advanced manipulation, filtering, and introduction to matrix math.*
+- Walk through:
+  - `import numpy as np`
+  - Creating a 1,000,000‑element NumPy array and Python list
+  - `%timeit` comparison: NumPy vectorized multiply vs list comprehension
+- Quick learner activity:
+  - Learners run the timing cell and briefly describe what they observe
 
-| Time | Activity | Instructor Notes |
-| ----- | ----- | ----- |
-| 15m | **Workshop 5: Slicing Views** | **Demo:** `[row, col]` syntax. Explain that slices are **views** (modifying a slice changes the original). |
-| 15m | **Workshop 6: Boolean & Set Logic** | **Demo:** Filtering by mask (e.g., `data[names == 'Bob']`). **Exercise:** `np.unique()` and `np.where()`. |
-| 15m | **Workshop 7: Stats & Algebra** | **Demo:** `.mean(axis=0)` vs `axis=1`. Introduction to Matrix Multiplication with `@` and `.dot()`. |
-| 15m | **Assessment & Wrap-up** | Run the 5-question quiz. Connect NumPy arrays to future Pandas DataFrames. |
+---
 
+## 30–65 min — Part 2: The ndarray
+
+Notebook: **“Part 2: The ndarray (N-dimensional array)”** and the demo cell creating `arr1` and `arr2`.[file:1]
+
+- Concept:
+  - `ndarray` as a container for homogeneous numeric data
+  - Key attributes: `.shape`, `.dtype`, `.ndim`
+- Demo:
+  - Create 1D and 2D arrays from Python lists
+  - Print the array, its shape, dtype, and number of dimensions
+- Short practice:
+  - Learners create their own small 1D and 2D arrays and inspect attributes
+
+---
+
+## 65–95 min — Data Types and Casting
+
+Notebook: **“Data Types and Casting”** markdown and casting demo cell.[file:1]
+
+- Concept:
+  - NumPy dtypes (`float64`, `int32`, etc.)
+  - Casting with `.astype()`
+  - Truncation when casting float → int
+- Demo:
+  - Create a float array, cast to `int32`, and inspect before/after
+  - Convert string numbers to float using `.astype(float)`
+- Exercise (in-notebook):
+  - **[EXERCISE 1: Creation & Casting]**
+    - 3×4 ones array → cast to `float32`
+    - String array `['1.25', '-9.6', '42']` → cast to `float`
+  - Learners implement solutions in the “Your code here” cell
+
+---
+
+## 95–120 min — Guided Practice Block 1
+
+Notebook: Re-use and extend the existing **Exercise 1** cell.[file:1]
+
+- Instructor adds a couple of extra prompts live:
+  - Check `shape` and `dtype` of each created array
+  - Create a new array and try casting to different integer types
+- Learners work individually or in pairs
+- Quick share-out of 1–2 solutions
+
+---
+
+## 120–150 min — Part 3: Arithmetic & Broadcasting (Intro)
+
+Notebook: **“Part 3: Arithmetic & Broadcasting”** markdown + empty “Your code here” cell.[file:1]
+
+- Concept (lightweight):
+  - Elementwise arithmetic on arrays (no explicit loops)
+  - Idea of broadcasting with scalars (e.g., `arr * 2`, `arr + 10`)
+- Live coding into the Part 3 code cell:
+  - Create a small 2D array and apply:
+    - Scalar operations (add, multiply)
+    - Elementwise operations between arrays of the same shape
+- Learner activity:
+  - Modify numbers, try a different scalar, and predict results before running
+
+---
+
+## 150–175 min — Guided Practice Block 2
+
+Notebook: Extend Part 3’s “Your code here” cell with simple tasks.[file:1]
+
+- Suggested prompts (typed by instructor into the cell / markdown above):
+  - Create a 2D “sales” array and apply percentage increases
+  - Compute a “discounted” array using scalar subtraction
+- Learners code their solutions and compare outputs
+
+---
+
+## 175–180 min — Wrap-up
+
+- Recap key skills tied directly to notebook sections:
+  - Performance benchmark (Part 1)
+  - ndarray basics: shape, dtype, ndim (Part 2)
+  - Casting and basic dtypes (Data Types and Casting)
+  - Simple arithmetic and the idea of broadcasting (Part 3, intro)
+- Point learners to:
+  - `pre-class.md` for environment refresh
+  - `post-class.md` for additional NumPy-only practice
+```
+
+This agenda stays strictly aligned with the current `numpy.ipynb` flow and can be extended later if you add more sections to the notebook. [github](https://github.com/su-ntu-ctp/6m-data-1.6-intro-numpy/blob/main/lesson.md)
